@@ -1,8 +1,5 @@
 def caesar(text, shift, encrypt=True):
 
-    if shift < 1 or shift > 25:
-        return 'Shift must be an integer between 1 and 25.'
-
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     if not encrypt:
@@ -31,9 +28,12 @@ text = input("What is the message? --THE CIPHER ONLY WORKS WITH ALPHABET'S CHARA
 
 while True:
     try:
-        shift_ = input("With which shift?")
+        shift_ = input("With which shift?\n")
         shift_ = int(shift_)
-        break
+        if shift_ < 1 or shift_ > 25:
+            print('Shift must be an integer between 1 and 25.\n')
+        else:
+            break
     except ValueError:
         print("Shift must be an integer!")
 
